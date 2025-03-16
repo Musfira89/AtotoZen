@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "../assets/Health.png";
 import { FaCheck } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
+import { HashLink as Link } from "react-router-hash-link";
 
 const HealthHRSection = () => {
   const { ref, inView } = useInView({
@@ -11,6 +12,7 @@ const HealthHRSection = () => {
   });
   return (
     <motion.section
+     id="health"
       ref={ref}
       className="max-w-7xl mx-auto px-4 py-22 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-11"
       initial={{ opacity: 0, y: 50 }}
@@ -66,14 +68,16 @@ const HealthHRSection = () => {
             </motion.li>
           ))}
         </ul>
-        <motion.button
-          className="mt-8 sm:mt-10 border border-[#5b3d29] text-[#5b3d29] font-bold py-3 px-6 rounded-lg hover:bg-[#5b3d29] hover:text-white transition font-montserrat w-full sm:w-auto"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          Quero novos resultados
-        </motion.button>
+        <Link to="/#contact-us" smooth>
+          <motion.button
+            className="mt-8 sm:mt-10 border border-[#5b3d29] text-[#5b3d29] font-bold py-3 px-6 rounded-lg hover:bg-[#5b3d29] hover:text-white transition font-montserrat w-full sm:w-auto"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Quero novos resultados
+          </motion.button>
+        </Link>
       </motion.div>
 
       {/* Conteúdo à Direita */}

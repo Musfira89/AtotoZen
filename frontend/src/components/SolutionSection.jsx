@@ -39,9 +39,12 @@ const pointIcons = [
   MessageSquare,
 ];
 
+import { HashLink as Link } from "react-router-hash-link";
+
 const SolutionSection = () => {
   return (
     <motion.section
+     id = "our-solution"
       className="max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row gap-8 md:gap-16 items-start"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -61,12 +64,14 @@ const SolutionSection = () => {
           We offer products and services that accompany your employee’s entire
           journey, from education to support in critical cases.
         </p>
-        <button
-          className="mt-6 border-2 border-transparent bg-gradient-to-r from-[#c79470] to-[#a36d50] text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-all duration-300 
-  hover:from-[#a36d50] hover:to-[#c79470] hover:scale-105 hover:shadow-lg"
-        >
-          Talk to our team
-        </button>
+        <Link to="/#contact-us" smooth>
+          <button
+            className="mt-6 border-2 border-transparent bg-gradient-to-r from-[#c79470] to-[#a36d50] text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-all duration-300 
+    hover:from-[#a36d50] hover:to-[#c79470] hover:scale-105 hover:shadow-lg"
+          >
+            Quero novos resultados
+          </button>
+        </Link>
       </div>
 
       {/* Right Side - Cards */}

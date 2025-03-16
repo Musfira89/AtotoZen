@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { HashLink as Link } from "react-router-hash-link";
 
 const faqs = [
   {
@@ -36,7 +37,10 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-6 py-40 grid md:grid-cols-5 gap-36">
+    <section
+      id="faqs"
+      className="max-w-7xl mx-auto px-6 lg:px-6 py-40 grid md:grid-cols-5 gap-36"
+    >
       {/* Conteúdo à esquerda */}
       <div className="md:col-span-2">
         <h4 className="text-sm font-medium text-[#5b3d29] tracking-wide uppercase font-poppins">
@@ -47,9 +51,13 @@ const FAQSection = () => {
         </h2>
         <p className="text-gray-600 mt-5 text-lg font-lato">
           Para saber mais,{" "}
-          <a href="#" className="text-[#5b3d29] font-semibold font-poppins underline">
+          <Link
+            to="/#contact-us"
+            smooth
+            className="text-[#5b3d29] font-semibold font-poppins underline"
+          >
             fale com a nossa equipe
-          </a>
+          </Link>
         </p>
       </div>
 

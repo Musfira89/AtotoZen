@@ -3,8 +3,7 @@ import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+
 
 const ChatScheduleForm = () => {
   const [formData, setFormData] = useState({

@@ -3,6 +3,7 @@ import Image from "../assets/Employess.png"; // Ajuste o caminho conforme necess
 import { FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { HashLink as Link } from "react-router-hash-link";
 
 const EmployeesSection = () => {
   const { ref, inView } = useInView({
@@ -12,6 +13,7 @@ const EmployeesSection = () => {
 
   return (
     <motion.section
+     id="employees"
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -102,14 +104,16 @@ const EmployeesSection = () => {
             Pioneiros na coordenação do cuidado em saúde mental no Brasil.
           </motion.p>
         </div>
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 1.4 }}
-          className="border border-[#5b3d29] text-[#5b3d29] text-sm px-8 py-3 rounded-md w-fit font-semibold hover:bg-[#5b3d29] hover:text-white transition mt-5"
-        >
-          Fale com nosso time
-        </motion.button>
+        <Link to="/#contact-us" smooth>
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1.4 }}
+            className="border border-[#5b3d29] text-[#5b3d29] text-sm px-8 py-3 rounded-md w-fit font-semibold hover:bg-[#5b3d29] hover:text-white transition mt-5"
+          >
+            Fale com nosso time
+          </motion.button>
+        </Link>
       </motion.div>
     </motion.section>
   );
