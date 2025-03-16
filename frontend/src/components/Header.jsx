@@ -6,7 +6,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 const NR1Section = () => {
   return (
-    <section className="bg-[#f3efec] text-[#3d2a1e] py-28 px-4 md:px-24 flex flex-col-reverse md:flex-row items-center justify-between">
+    <section className="bg-[#f3efec] text-[#3d2a1e] py-32 px-4 md:px-24 flex flex-col-reverse md:flex-row items-center justify-between">
       
       {/* Lado direito: Imagem */}
       <motion.div 
