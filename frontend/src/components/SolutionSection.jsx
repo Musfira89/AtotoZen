@@ -44,7 +44,7 @@ import { HashLink as Link } from "react-router-hash-link";
 const SolutionSection = () => {
   return (
     <motion.section
-     id = "our-solution"
+      id="our-solution"
       className="max-w-7xl mx-auto px-4 py-20 flex flex-col md:flex-row gap-8 md:gap-16 items-start"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}

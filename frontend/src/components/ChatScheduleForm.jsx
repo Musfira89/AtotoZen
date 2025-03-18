@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
+import axios from "axios";
 
 const ChatScheduleForm = () => {
   const [formData, setFormData] = useState({
@@ -25,31 +24,43 @@ const ChatScheduleForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbx27f6zlwbFw4oTE16DQ6A_qxAbTY0tKOiFWlBd6qNXL-YuXwq_p3KOfH6zRK26nIEdXw/exec";
+
+    const formBody = new URLSearchParams(formData).toString();
+
     try {
-      const response = await axios.post(
-        "http://localhost:8082/api/send-email",
-        formData
-      );
-      toast.success(response.data.message, {
-        style: { background: "black", color: "white" },
+      const response = await axios.post(scriptURL, formBody, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       });
-  
-      // ✅ Clear all input fields after successful submission
-      setFormData({
-        email: "",
-        name: "",
-        phone: "",
-        company: "",
-        employees: "",
-      });
-  
+
+      console.log("Response from Google Script:", response.data);
+
+      if (response.data.includes("Success")) {
+        toast.success("Form submitted successfully!", {
+          style: { background: "black", color: "white" },
+        });
+
+        setFormData({
+          email: "",
+          name: "",
+          phone: "",
+          company: "",
+          employees: "",
+        });
+      } else {
+        throw new Error(response.data);
+      }
     } catch (error) {
-      toast.error("Falha ao enviar mensagem. Por favor, tente novamente.", {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit the form. Please try again.", {
         style: { background: "black", color: "white" },
       });
     }
   };
-  
 
   return (
     <motion.div
@@ -66,7 +77,8 @@ const ChatScheduleForm = () => {
           Agende um bate-papo com a gente
         </h2>
         <p className="text-md md:text-md text-[#5b3d29] mb-18">
-          Condições especiais para ter o Zenklub na sua empresa e estar em conformidade com a NR-1
+          Condições especiais para ter o Zenklub na sua empresa e estar em
+          conformidade com a NR-1
         </p>
       </div>
 

@@ -8,7 +8,7 @@ import { HashLink as Link } from "react-router-hash-link";
 const EmployeesSection = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.2, // Dispara quando 20% da seção estiver visível
+    threshold: 0.2, 
   });
 
   return (
@@ -20,7 +20,7 @@ const EmployeesSection = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="max-w-7xl mx-auto px-4 py-32 grid md:grid-cols-2 gap-16 items-center border-t border-b border-gray-300 border-dotted"
     >
-      {/* Conteúdo Esquerdo (Imagem) */}
+
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={inView ? { scale: 1, opacity: 1 } : {}}
@@ -106,10 +106,10 @@ const EmployeesSection = () => {
         </div>
         <Link to="/#contact-us" smooth>
           <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 1.4 }}
-            className="border border-[#5b3d29] text-[#5b3d29] text-sm px-8 py-3 rounded-md w-fit font-semibold hover:bg-[#5b3d29] hover:text-white transition mt-5"
+            className="mt-8 sm:mt-10 border border-[#5b3d29] text-[#5b3d29] font-bold py-3 px-6 rounded-lg hover:bg-[#5b3d29] hover:text-white transition font-montserrat w-full sm:w-auto"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             Fale com nosso time
           </motion.button>
